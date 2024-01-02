@@ -7,6 +7,7 @@ package Lógica;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -21,7 +22,7 @@ public class conexion {
     public conexion() {
     }
     
-    public Connection conectar(){
+    public Connection conectar() throws SQLException{
         Connection link = null;
         
         try {
