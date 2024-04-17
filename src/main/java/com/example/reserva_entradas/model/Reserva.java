@@ -1,5 +1,7 @@
 package com.example.reserva_entradas.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -14,5 +16,6 @@ import lombok.NoArgsConstructor;
     name = "reservas"
 )
 public class Reserva {
-    
+    private Long idreserva;
+    private LocalDateTime timestamp;
 }

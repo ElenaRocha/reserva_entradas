@@ -14,5 +14,12 @@ import lombok.NoArgsConstructor;
     name = "usuarios"
 )
 public class Usuario {
-    
+    private Long idusuario;
+    private String email;
+    private String contrasena;
+    private String nombre;
+    private String apellido1;
+    private String apellido2;
+    private Integer telefono;
+    private String rol;
 }

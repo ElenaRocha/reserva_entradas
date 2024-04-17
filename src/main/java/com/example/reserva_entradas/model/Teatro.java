@@ -14,5 +14,6 @@ import lombok.NoArgsConstructor;
     name = "teatros"
 )
 public class Teatro {
-    
+    private Long idteatro;
+    private String nombre;
 }

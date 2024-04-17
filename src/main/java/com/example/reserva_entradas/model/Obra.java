@@ -14,5 +14,9 @@ import lombok.NoArgsConstructor;
     name = "obras"
 )
 public class Obra {
-    
+    private Long idobra;
+    private String titulo;
+    private String autor;
+    private String sinopsis;
+    private Integer duracion_min;
 }
