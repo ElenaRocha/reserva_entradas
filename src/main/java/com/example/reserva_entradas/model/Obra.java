@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
+@Table(
+    name = "obras"
+)
 public class Obra {
     
 }

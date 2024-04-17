@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table
+@Table(
+    name = "reservas"
+)
 public class Reserva {
     
 }
