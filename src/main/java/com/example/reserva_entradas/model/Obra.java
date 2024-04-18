@@ -20,6 +20,47 @@ import lombok.NoArgsConstructor;
     name = "obras"
 )
 public class Obra {
+
+    public Long getIdObra() {
+        return idobra;
+    }
+
+    public void setIdObra(Long idobra) {
+        this.idobra = idobra;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public String getSinopsis() {
+        return sinopsis;
+    }
+
+    public void setSinopsis(String sinopsis) {
+        this.sinopsis = sinopsis;
+    }
+
+    public Integer getDuracion_min() {
+        return duracion_min;
+    }
+
+    public void setDuracion_min(Integer duracion_min) {
+        this.duracion_min = duracion_min;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idobra;

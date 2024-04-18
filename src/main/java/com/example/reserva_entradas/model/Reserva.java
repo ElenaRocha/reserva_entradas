@@ -22,11 +22,20 @@ import lombok.NoArgsConstructor;
     name = "reservas"
 )
 public class Reserva {
+
+    public Long getIdReserva() {
+        return idreserva;
+    }
+
+    public void setIdReserva(Long idreserva) {
+        this.idreserva = idreserva;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idreserva;
 
-    //TODO: cómo anotar el timestamp
+    //TODO: cómo anotar el timestamp, le falta el getter y setter
     @Column(nullable = false)
     private LocalDateTime timestamp;
 

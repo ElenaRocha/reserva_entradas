@@ -23,6 +23,39 @@ import lombok.NoArgsConstructor;
     name = "pases"
 )
 public class Pase {
+
+    public Long getIdPase() {
+        return idpase;
+    }
+
+    public void setIdPase(Long idpase) {
+        this.idpase = idpase;
+    }
+
+    public LocalDate getDia() {
+        return dia;
+    }
+
+    public void setDia(LocalDate dia) {
+        this.dia = dia;
+    }
+
+    public LocalTime getHora() {
+        return hora;
+    }
+
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
+    }
+
+    public Float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Float precio) {
+        this.precio = precio;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idpase;
