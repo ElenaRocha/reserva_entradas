@@ -1,5 +1,5 @@
 package com.example.reserva_entradas.service;
 
-public class UsuarioService {
+public interface UsuarioService {
     
 }
