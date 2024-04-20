@@ -37,7 +37,7 @@ public class Reserva {
 
     //TODO: cómo anotar el timestamp, le falta el getter y setter
     @Column(nullable = false)
-    private LocalDateTime timestamp;
+    private LocalDateTime time_stamp;
 
     @ManyToOne
     @JoinColumn(

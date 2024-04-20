@@ -69,11 +69,11 @@ public class Usuario {
         this.apellido2 = apellido2;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -105,7 +105,7 @@ public class Usuario {
     private String apellido2;
 
     @Column
-    private Integer telefono;
+    private String telefono;
 
     @Column(nullable = false)
     private String rol;

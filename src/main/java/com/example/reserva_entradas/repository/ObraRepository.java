@@ -9,5 +9,5 @@ import com.example.reserva_entradas.model.Obra;
 
 @Repository
 public interface ObraRepository extends JpaRepository<Obra, Long>{
-    List<Obra> findByTeatroId(Long teatro);
+    List<Obra> findByTeatroId(Long teatroId);
 }

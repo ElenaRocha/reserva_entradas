@@ -9,5 +9,5 @@ import com.example.reserva_entradas.model.Pase;
 
 @Repository
 public interface PaseRepository extends JpaRepository<Pase, Long>{
-    List<Pase> findByObraId(Long obra);
+    List<Pase> findByObraId(Long obraId);
 }
