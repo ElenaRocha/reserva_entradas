@@ -27,17 +27,17 @@ public class ObraServiceImpl implements ObraService{
 
     @Override
     public List<Obra> getObraByTeatro(Long teatro_id) {
-        
+        return obraRepository.findByTeatroId(teatro_id);
     }
 
     @Override
     public Obra saveObra(Obra obra) {
-        
+        return obraRepository.save(obra);
     }
 
     @Override
     public void deleteObra(Long idobra) {
-        
+        obraRepository.deleteById(idobra);
     }
     
 }

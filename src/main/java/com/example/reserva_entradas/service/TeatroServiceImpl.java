@@ -27,12 +27,12 @@ public class TeatroServiceImpl implements TeatroService{
 
     @Override
     public Teatro saveTeatro(Teatro teatro) {
-        
+        return teatroRepository.save(teatro);
     }
 
     @Override
     public void deleteTeatro(Long idteatro) {
-        
+        teatroRepository.deleteById(idteatro);
     }
     
 }

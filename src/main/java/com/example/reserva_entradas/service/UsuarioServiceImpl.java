@@ -27,17 +27,17 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     public List<Usuario> getUsuarioByTeatro(Long teatro_id) {
-        
+        return usuarioRepository.findByTeatroId(teatro_id);
     }
 
     @Override
     public Usuario saveUsuario(Usuario usuario) {
-        
+        return usuarioRepository.save(usuario);
     }
 
     @Override
-    public void deleteTeatro(Long idteatro) {
-        
+    public void deleteTeatro(Long idusuario) {
+        usuarioRepository.deleteById(idusuario);
     }
     
 }

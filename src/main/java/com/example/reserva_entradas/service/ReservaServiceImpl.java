@@ -27,22 +27,22 @@ public class ReservaServiceImpl implements ReservaService{
 
     @Override
     public List<Reserva> getReservaByUsuario(Long usuario_id) {
-        
+        return reservaRepository.findByUsuarioId(usuario_id);
     }
 
     @Override
     public List<Reserva> getPaseByObra(Long obra_id) {
-        
+        return reservaRepository.findByObraId(obra_id);
     }
 
     @Override
     public Reserva saveReserva(Reserva reserva) {
-        
+        return reservaRepository.save(reserva);
     }
 
     @Override
     public void deleteReserva(Long idreserva) {
-        
+        reservaRepository.deleteById(idreserva);
     }
     
 }

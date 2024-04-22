@@ -27,17 +27,17 @@ public class PaseServiceImpl implements PaseService{
 
     @Override
     public List<Pase> getPaseByObra(Long obra_id) {
-        
+        return paseRepository.findByObraId(obra_id);
     }
 
     @Override
     public Pase savePase(Pase pase) {
-        
+        return paseRepository.save(pase);
     }
 
     @Override
     public void deletePase(Long idpase) {
-        
+        paseRepository.deleteById(idpase);
     }
     
 }
