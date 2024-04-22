@@ -3,12 +3,17 @@ package com.example.reserva_entradas.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.reserva_entradas.model.Obra;
+import com.example.reserva_entradas.repository.ObraRepository;
 
 @Service
 public class ObraServiceImpl implements ObraService{
+
+    @Autowired
+    private ObraRepository obraRepository;
 
     @Override
     public List<Obra> getAllObras() {
