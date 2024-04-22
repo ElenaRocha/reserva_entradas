@@ -1,5 +1,33 @@
 package com.example.reserva_entradas.service;
 
-public class TeatroServiceImpl {
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.example.reserva_entradas.model.Teatro;
+
+@Service
+public class TeatroServiceImpl implements TeatroService{
+
+    @Override
+    public List<Teatro> getAllTeatros() {
+        throw new UnsupportedOperationException("Unimplemented method 'getAllTeatros'");
+    }
+
+    @Override
+    public Optional<Teatro> getTeatroById(Long idteatro) {
+        throw new UnsupportedOperationException("Unimplemented method 'getTeatroById'");
+    }
+
+    @Override
+    public Teatro saveTeatro(Teatro teatro) {
+        throw new UnsupportedOperationException("Unimplemented method 'saveTeatro'");
+    }
+
+    @Override
+    public void deleteTeatro(Long idteatro) {
+        throw new UnsupportedOperationException("Unimplemented method 'deleteTeatro'");
+    }
     
 }
