@@ -17,27 +17,27 @@ public class PaseServiceImpl implements PaseService{
 
     @Override
     public List<Pase> getAllPases() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAllPases'");
+        return paseRepository.findAll();
     }
 
     @Override
     public Optional<Pase> getPaseById(Long idpase) {
-        throw new UnsupportedOperationException("Unimplemented method 'getPaseById'");
+        return paseRepository.findById(idpase);
     }
 
     @Override
     public List<Pase> getPaseByObra(Long obra_id) {
-        throw new UnsupportedOperationException("Unimplemented method 'getPaseByObra'");
+        
     }
 
     @Override
     public Pase savePase(Pase pase) {
-        throw new UnsupportedOperationException("Unimplemented method 'savePase'");
+        
     }
 
     @Override
     public void deletePase(Long idpase) {
-        throw new UnsupportedOperationException("Unimplemented method 'deletePase'");
+        
     }
     
 }

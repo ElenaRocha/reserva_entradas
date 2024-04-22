@@ -17,27 +17,27 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     public List<Usuario> getAllUsuarios() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAllUsuarios'");
+        return usuarioRepository.findAll();
     }
 
     @Override
     public Optional<Usuario> getUsuarioById(Long idusuario) {
-        throw new UnsupportedOperationException("Unimplemented method 'getUsuarioById'");
+        return usuarioRepository.findById(idusuario);
     }
 
     @Override
     public List<Usuario> getUsuarioByTeatro(Long teatro_id) {
-        throw new UnsupportedOperationException("Unimplemented method 'getUsuarioByTeatro'");
+        
     }
 
     @Override
     public Usuario saveUsuario(Usuario usuario) {
-        throw new UnsupportedOperationException("Unimplemented method 'saveUsuario'");
+        
     }
 
     @Override
     public void deleteTeatro(Long idteatro) {
-        throw new UnsupportedOperationException("Unimplemented method 'deleteTeatro'");
+        
     }
     
 }

@@ -17,27 +17,27 @@ public class ObraServiceImpl implements ObraService{
 
     @Override
     public List<Obra> getAllObras() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAllObras'");
+        return obraRepository.findAll();
     }
 
     @Override
     public Optional<Obra> getObraById(Long idobra) {
-        throw new UnsupportedOperationException("Unimplemented method 'getObraById'");
+        return obraRepository.findById(idobra);
     }
 
     @Override
     public List<Obra> getObraByTeatro(Long teatro_id) {
-        throw new UnsupportedOperationException("Unimplemented method 'getObraByTeatro'");
+        
     }
 
     @Override
     public Obra saveObra(Obra obra) {
-        throw new UnsupportedOperationException("Unimplemented method 'saveObra'");
+        
     }
 
     @Override
     public void deleteObra(Long idobra) {
-        throw new UnsupportedOperationException("Unimplemented method 'deleteObra'");
+        
     }
     
 }

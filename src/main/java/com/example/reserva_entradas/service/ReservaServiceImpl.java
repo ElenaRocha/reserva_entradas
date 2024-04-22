@@ -17,32 +17,32 @@ public class ReservaServiceImpl implements ReservaService{
 
     @Override
     public List<Reserva> getAllReservas() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAllReservas'");
+        return reservaRepository.findAll();
     }
 
     @Override
     public Optional<Reserva> getReservaById(Long idreserva) {
-        throw new UnsupportedOperationException("Unimplemented method 'getReservaById'");
+        return reservaRepository.findById(idreserva);
     }
 
     @Override
     public List<Reserva> getReservaByUsuario(Long usuario_id) {
-        throw new UnsupportedOperationException("Unimplemented method 'getReservaByUsuario'");
+        
     }
 
     @Override
     public List<Reserva> getPaseByObra(Long obra_id) {
-        throw new UnsupportedOperationException("Unimplemented method 'getPaseByObra'");
+        
     }
 
     @Override
     public Reserva saveReserva(Reserva reserva) {
-        throw new UnsupportedOperationException("Unimplemented method 'saveReserva'");
+        
     }
 
     @Override
     public void deleteReserva(Long idreserva) {
-        throw new UnsupportedOperationException("Unimplemented method 'deleteReserva'");
+        
     }
     
 }

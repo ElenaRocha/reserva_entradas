@@ -17,22 +17,22 @@ public class TeatroServiceImpl implements TeatroService{
 
     @Override
     public List<Teatro> getAllTeatros() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAllTeatros'");
+        return teatroRepository.findAll();
     }
 
     @Override
     public Optional<Teatro> getTeatroById(Long idteatro) {
-        throw new UnsupportedOperationException("Unimplemented method 'getTeatroById'");
+        return teatroRepository.findById(idteatro);
     }
 
     @Override
     public Teatro saveTeatro(Teatro teatro) {
-        throw new UnsupportedOperationException("Unimplemented method 'saveTeatro'");
+        
     }
 
     @Override
     public void deleteTeatro(Long idteatro) {
-        throw new UnsupportedOperationException("Unimplemented method 'deleteTeatro'");
+        
     }
     
 }
