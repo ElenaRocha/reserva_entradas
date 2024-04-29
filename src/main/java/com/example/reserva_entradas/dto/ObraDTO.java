@@ -1,6 +1,6 @@
 package com.example.reserva_entradas.dto;
 
-import com.example.reserva_entradas.model.Obra;
+//import com.example.reserva_entradas.model.Obra;
 import com.example.reserva_entradas.model.Teatro;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

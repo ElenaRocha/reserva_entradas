@@ -1,8 +1,11 @@
 package com.example.reserva_entradas.model;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
+//import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
+import org.hibernate.annotations.CreationTimestamp;
+
+//import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,13 +34,20 @@ public class Reserva {
         this.idreserva = idreserva;
     }
 
+    public Timestamp getTime_stamp() {
+        return time_stamp;
+    }
+
+    public void setTime_stamp(Timestamp time_stamp) {
+        this.time_stamp = time_stamp;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idreserva;
 
-    //TODO: cómo anotar el timestamp, le falta el getter y setter
-    @Column(nullable = false)
-    private LocalDateTime time_stamp;
+    @CreationTimestamp
+    private Timestamp time_stamp;
 
     @ManyToOne
     @JoinColumn(

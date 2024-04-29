@@ -12,7 +12,7 @@ public interface ReservaService {
 
     List<Reserva> getReservaByUsuario(Long usuario_id);
 
-    List<Reserva> getPaseByObra(Long obra_id);
+    List<Reserva> getReservaByPase(Long pase_id);
 
     Reserva saveReserva(Reserva reserva);
 

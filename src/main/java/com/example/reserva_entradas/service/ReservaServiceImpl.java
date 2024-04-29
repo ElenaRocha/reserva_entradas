@@ -31,8 +31,8 @@ public class ReservaServiceImpl implements ReservaService{
     }
 
     @Override
-    public List<Reserva> getPaseByObra(Long obra_id) {
-        return reservaRepository.findByObraId(obra_id);
+    public List<Reserva> getReservaByPase(Long pase_id) {
+        return reservaRepository.findByPaseId(pase_id);
     }
 
     @Override

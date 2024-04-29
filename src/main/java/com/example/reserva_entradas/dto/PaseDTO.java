@@ -1,6 +1,10 @@
 package com.example.reserva_entradas.dto;
 
-import com.example.reserva_entradas.model.Pase;
+//import com.example.reserva_entradas.model.Pase;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import com.example.reserva_entradas.model.Obra;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
