@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.reserva_entradas.dto.PaseDTO;
+import com.example.reserva_entradas.model.Pase;
 import com.example.reserva_entradas.service.PaseService;
 
 @RestController
@@ -12,5 +14,14 @@ public class PaseController {
     
     @Autowired
     private PaseService paseService;
+
+    private PaseDTO convertirPaseDto(Pase pase) {
+        PaseDTO paseDTO = new PaseDTO();
+        paseDTO.setIdpase(pase.getIdPase());
+        paseDTO.setDia(pase.getDia());
+        paseDTO.setHora(pase.getHora());
+        paseDTO.setPrecio(pase.getPrecio());
+        paseDTO.setObra(pase.getObra());
+    }
 
 }
