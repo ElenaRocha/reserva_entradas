@@ -1,6 +1,11 @@
 package com.example.reserva_entradas.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +19,21 @@ public class UsuarioController {
     
     @Autowired
     private UsuarioService usuarioService;
+
+    @GetMapping
+    public List<UsuarioDTO> getAllUsuarios() {
+        List<Usuario> usuarios =usuarioService.getAllUsuarios();
+        return usuarios.stream()
+            .map(this::convertirUsuarioDTO)
+            .collect(Collectors.toList());
+    };
+
+    @GetMapping("/{idusuario}")
+    public UsuarioDTO getUsuarioById(@PathVariable Long idusuario) {
+        return usuarioService.getUsuarioById(idusuario)
+        .map(this::convertirUsuarioDTO)
+        .orElse(null);
+    };
 
     private UsuarioDTO convertirUsuarioDTO(Usuario usuario) {
         UsuarioDTO usuarioDTO = new UsuarioDTO();

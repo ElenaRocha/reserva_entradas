@@ -1,6 +1,11 @@
 package com.example.reserva_entradas.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +19,21 @@ public class PaseController {
     
     @Autowired
     private PaseService paseService;
+
+    @GetMapping
+    public List<PaseDTO> getAllPases() {
+        List<Pase> pases = paseService.getAllPases();
+        return pases.stream()
+            .map(this::convertirPaseDto)
+            .collect(Collectors.toList());
+    };
+
+    @GetMapping("/{idpase}")
+    public PaseDTO getPaseById(@PathVariable Long idpase) {
+        return paseService.getPaseById(idpase)
+            .map(this::convertirPaseDto)
+            .orElse(null);
+    };
 
     private PaseDTO convertirPaseDto(Pase pase) {
         PaseDTO paseDTO = new PaseDTO();
