@@ -26,5 +26,16 @@ public class ObraController {
         obraDto.setTeatro(obra.getTeatro());
         return obraDto;
     }
+
+    private Obra convertirObraEntidad(ObraDTO obraDTO) {
+        Obra obra = new Obra();
+        obra.setIdObra(obraDTO.getIdobra());
+        obra.setTitulo(obraDTO.getTitulo());
+        obra.setAutor(obraDTO.getAutor());
+        obra.setSinopsis(obraDTO.getSinopsis());
+        obra.setDuracion_min(obraDTO.getDuracion_min());
+        obra.setTeatro(obraDTO.getTeatro());
+        return obra;
+    }
     
 }

@@ -20,6 +20,15 @@ public class TeatroController {
         teatroDTO.setIdteatro(teatro.getIdTeatro());
         teatroDTO.setNombre(teatro.getNombre());
         teatroDTO.setPresentacion(teatro.getPresentacion());
+        return teatroDTO;
+    }
+
+    private Teatro convertirTeatroEntidad(TeatroDTO teatroDTO) {
+        Teatro teatro = new Teatro();
+        teatro.setIdTeatro(teatroDTO.getIdteatro());
+        teatro.setNombre(teatroDTO.getNombre());
+        teatro.setPresentacion(teatroDTO.getPresentacion());
+        return teatro;
     }
 
 }

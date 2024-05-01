@@ -22,6 +22,17 @@ public class PaseController {
         paseDTO.setHora(pase.getHora());
         paseDTO.setPrecio(pase.getPrecio());
         paseDTO.setObra(pase.getObra());
+        return paseDTO;
+    }
+
+    private Pase convertirPaseEntidad(PaseDTO paseDTO) {
+        Pase pase = new Pase();
+        pase.setIdPase(paseDTO.getIdpase());
+        pase.setDia(paseDTO.getDia());
+        pase.setHora(paseDTO.getHora());
+        pase.setPrecio(paseDTO.getPrecio());
+        pase.setObra(paseDTO.getObra());
+        return pase;
     }
 
 }

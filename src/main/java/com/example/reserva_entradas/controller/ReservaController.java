@@ -21,6 +21,16 @@ public class ReservaController {
         reservaDTO.setTime_stamp(reserva.getTime_stamp());
         reservaDTO.setUsuario(reserva.getUsuario());
         reservaDTO.setPase(reserva.getPase());
+        return reservaDTO;
+    }
+
+    private Reserva convertirReservaEntidad(ReservaDTO reservaDTO) {
+        Reserva reserva = new Reserva();
+        reserva.setIdReserva(reservaDTO.getIdreserva());
+        reserva.setTime_stamp(reservaDTO.getTime_stamp());
+        reserva.setUsuario(reservaDTO.getUsuario());
+        reserva.setPase(reserva.getPase());
+        return reserva;
     }
 
 }

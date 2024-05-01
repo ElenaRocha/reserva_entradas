@@ -26,6 +26,21 @@ public class UsuarioController {
         usuarioDTO.setTelefono(usuario.getTelefono());
         usuarioDTO.setRol(usuario.getRol());
         usuarioDTO.setTeatro(usuario.getTeatro());
+        return usuarioDTO;
+    }
+
+    private Usuario convertirUsuarioEntidad(UsuarioDTO usuarioDTO) {
+        Usuario usuario = new Usuario();
+        usuario.setIdUsuario(usuarioDTO.getIdusuario());
+        usuario.setEmail(usuarioDTO.getEmail());
+        usuario.setContrasena(usuarioDTO.getContrasena());
+        usuario.setNombre(usuarioDTO.getNombre());
+        usuario.setApellido1(usuarioDTO.getApellido1());
+        usuario.setApellido2(usuarioDTO.getApellido2());
+        usuario.setTelefono(usuarioDTO.getTelefono());
+        usuario.setRol(usuarioDTO.getRol());
+        usuario.setTeatro(usuarioDTO.getTeatro());
+        return usuario;
     }
 
 }
