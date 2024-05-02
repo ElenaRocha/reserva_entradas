@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,14 +30,14 @@ public class ObraController {
         return obras.stream()
             .map(this::convertirObraDto)
             .collect(Collectors.toList());
-    };
+    }
 
     @GetMapping("/{idobra}")
     public ObraDTO getObraById(@PathVariable Long idobra) {
         return obraService.getObraById(idobra)
             .map(this::convertirObraDto)
             .orElse(null);
-    };
+    }
 
     @GetMapping("/teatro/{idteatro}")
     public List<ObraDTO> getObraByTeatro(@PathVariable Long idteatro) {
@@ -42,6 +45,18 @@ public class ObraController {
         return obras.stream()
             .map(this::convertirObraDto)
             .collect(Collectors.toList());
+    }
+
+    @PostMapping
+    public ObraDTO saveObraDTO(@RequestBody ObraDTO obraDTO) {
+        Obra obra = convertirObraEntidad(obraDTO);
+        Obra savedObra = obraService.saveObra(obra);
+        return convertirObraDto(savedObra);
+    }
+
+    @DeleteMapping("/{idobra}")
+    public void deleteObra(@PathVariable Long idobra) {
+        obraService.deleteObra(idobra);
     }
 
     private ObraDTO convertirObraDto(Obra obra) {

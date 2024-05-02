@@ -14,5 +14,5 @@ public interface UsuarioService {
 
     Usuario saveUsuario(Usuario usuario);
 
-    void deleteTeatro(Long idusuario);
+    void deleteUsuario(Long idusuario);
 }

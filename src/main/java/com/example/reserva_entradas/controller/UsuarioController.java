@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,14 +29,14 @@ public class UsuarioController {
         return usuarios.stream()
             .map(this::convertirUsuarioDTO)
             .collect(Collectors.toList());
-    };
+    }
 
     @GetMapping("/{idusuario}")
     public UsuarioDTO getUsuarioById(@PathVariable Long idusuario) {
         return usuarioService.getUsuarioById(idusuario)
         .map(this::convertirUsuarioDTO)
         .orElse(null);
-    };
+    }
 
     @GetMapping("/teatro/{idteatro}")
     public List<UsuarioDTO> getUsuarioByTeatro(@PathVariable Long idteatro) {
@@ -41,7 +44,19 @@ public class UsuarioController {
         return usuarios.stream()
             .map(this::convertirUsuarioDTO)
             .collect(Collectors.toList());
-    };
+    }
+
+    @PostMapping
+    public UsuarioDTO saveUsuarioDTO(@RequestBody UsuarioDTO usuarioDTO) {
+        Usuario usuario = convertirUsuarioEntidad(usuarioDTO);
+        Usuario savedUsuario = usuarioService.saveUsuario(usuario);
+        return convertirUsuarioDTO(savedUsuario);
+    }
+
+    @DeleteMapping("/{idusuario}")
+    public void deleteUsuario(@PathVariable Long idusuario) {
+        usuarioService.deleteUsuario(idusuario);
+    }
 
     private UsuarioDTO convertirUsuarioDTO(Usuario usuario) {
         UsuarioDTO usuarioDTO = new UsuarioDTO();

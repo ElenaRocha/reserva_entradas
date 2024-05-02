@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,14 +29,14 @@ public class ReservaController {
         return reservas.stream()
             .map(this::convertirReservaDto)
             .collect(Collectors.toList());
-    };
+    }
 
     @GetMapping("/{idreserva}")
     public ReservaDTO getReservaById(@PathVariable Long idreserva) {
         return reservaService.getReservaById(idreserva)
             .map(this::convertirReservaDto)
             .orElse(null);
-    };
+    }
 
     @GetMapping("/pase/{idpase}")
     public List<ReservaDTO> getReservaByPase(@PathVariable Long idpase) {
@@ -41,7 +44,7 @@ public class ReservaController {
         return reservas.stream()
             .map(this::convertirReservaDto)
             .collect(Collectors.toList());
-    };
+    }
 
     @GetMapping("/usuario/{idusuario}")
     public List<ReservaDTO> getReservaByUsuario(@PathVariable Long idusuario) {
@@ -49,7 +52,19 @@ public class ReservaController {
         return reservas.stream()
             .map(this::convertirReservaDto)
             .collect(Collectors.toList());
-    };
+    }
+
+    @PostMapping
+    public ReservaDTO saveReservaDTO(@RequestBody ReservaDTO reservaDTO) {
+        Reserva reserva = convertirReservaEntidad(reservaDTO);
+        Reserva savedReserva = reservaService.saveReserva(reserva);
+        return convertirReservaDto(savedReserva);
+    }
+
+    @DeleteMapping("/{idreserva}")
+    public void deleteReserva(@PathVariable Long idreserva) {
+        reservaService.deleteReserva(idreserva);
+    }
 
     private ReservaDTO convertirReservaDto(Reserva reserva) {
         ReservaDTO reservaDTO = new ReservaDTO();
