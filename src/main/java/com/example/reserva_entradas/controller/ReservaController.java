@@ -35,6 +35,22 @@ public class ReservaController {
             .orElse(null);
     };
 
+    @GetMapping("/pase/{idpase}")
+    public List<ReservaDTO> getReservaByPase(@PathVariable Long idpase) {
+        List<Reserva> reservas = reservaService.getReservaByPase(idpase);
+        return reservas.stream()
+            .map(this::convertirReservaDto)
+            .collect(Collectors.toList());
+    };
+
+    @GetMapping("/usuario/{idusuario}")
+    public List<ReservaDTO> getReservaByUsuario(@PathVariable Long idusuario) {
+        List<Reserva> reservas = reservaService.getReservaByUsuario(idusuario);
+        return reservas.stream()
+            .map(this::convertirReservaDto)
+            .collect(Collectors.toList());
+    };
+
     private ReservaDTO convertirReservaDto(Reserva reserva) {
         ReservaDTO reservaDTO = new ReservaDTO();
         reservaDTO.setIdreserva(reserva.getIdReserva());

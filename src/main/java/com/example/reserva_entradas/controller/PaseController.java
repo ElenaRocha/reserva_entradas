@@ -35,6 +35,14 @@ public class PaseController {
             .orElse(null);
     };
 
+    @GetMapping("/obra/{idobra}")
+    public List<PaseDTO> getPaseByObra(@PathVariable Long idobra) {
+        List<Pase> pases = paseService.getPaseByObra(idobra);
+        return pases.stream()
+            .map(this::convertirPaseDto)
+            .collect(Collectors.toList());
+    };
+
     private PaseDTO convertirPaseDto(Pase pase) {
         PaseDTO paseDTO = new PaseDTO();
         paseDTO.setIdpase(pase.getIdPase());

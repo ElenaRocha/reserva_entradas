@@ -36,6 +36,14 @@ public class ObraController {
             .orElse(null);
     };
 
+    @GetMapping("/teatro/{idteatro}")
+    public List<ObraDTO> getObraByTeatro(@PathVariable Long idteatro) {
+        List<Obra> obras = obraService.getObraByTeatro(idteatro);
+        return obras.stream()
+            .map(this::convertirObraDto)
+            .collect(Collectors.toList());
+    }
+
     private ObraDTO convertirObraDto(Obra obra) {
         ObraDTO obraDto = new ObraDTO();
         obraDto.setIdobra(obra.getIdObra());

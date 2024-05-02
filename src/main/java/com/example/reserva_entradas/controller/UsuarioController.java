@@ -35,6 +35,14 @@ public class UsuarioController {
         .orElse(null);
     };
 
+    @GetMapping("/teatro/{idteatro}")
+    public List<UsuarioDTO> getUsuarioByTeatro(@PathVariable Long idteatro) {
+        List<Usuario> usuarios = usuarioService.getUsuarioByTeatro(idteatro);
+        return usuarios.stream()
+            .map(this::convertirUsuarioDTO)
+            .collect(Collectors.toList());
+    };
+
     private UsuarioDTO convertirUsuarioDTO(Usuario usuario) {
         UsuarioDTO usuarioDTO = new UsuarioDTO();
         usuarioDTO.setIdusuario(usuario.getIdUsuario());
