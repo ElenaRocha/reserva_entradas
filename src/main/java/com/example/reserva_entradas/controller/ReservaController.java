@@ -1,87 +1,32 @@
 package com.example.reserva_entradas.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.example.reserva_entradas.dto.ReservaDTO;
 import com.example.reserva_entradas.model.Reserva;
 import com.example.reserva_entradas.service.ReservaService;
 
-@RestController
-@RequestMapping("/reservas")
+@Controller
 public class ReservaController {
-    
+    private final ReservaService reservaService;
+
     @Autowired
-    private ReservaService reservaService;
-
-    @GetMapping
-    public List<ReservaDTO> getAllReservas() {
-        List<Reserva> reservas = reservaService.getAllReservas();
-        return reservas.stream()
-            .map(this::convertirReservaDto)
-            .collect(Collectors.toList());
+    public ReservaController(ReservaService reservaService){
+        this.reservaService = reservaService;
     }
 
-    @GetMapping("/{idreserva}")
-    public ReservaDTO getReservaById(@PathVariable Long idreserva) {
-        return reservaService.getReservaById(idreserva)
-            .map(this::convertirReservaDto)
-            .orElse(null);
+    @GetMapping("/reservas")
+    public String getAllReservas(Model model){
+        try {
+            List<Reserva> reservas = reservaService.getAllReservas();
+            model.addAttribute("reservasParaFront", reservas);
+            return "reservasTemplate";
+        } catch (Exception e) {
+            return "Error al mostrar las reservas" + e.getMessage();
+        }
     }
-
-    @GetMapping("/pase/{idpase}")
-    public List<ReservaDTO> getReservaByPase(@PathVariable Long idpase) {
-        List<Reserva> reservas = reservaService.getReservaByPase(idpase);
-        return reservas.stream()
-            .map(this::convertirReservaDto)
-            .collect(Collectors.toList());
-    }
-
-    @GetMapping("/usuario/{idusuario}")
-    public List<ReservaDTO> getReservaByUsuario(@PathVariable Long idusuario) {
-        List<Reserva> reservas = reservaService.getReservaByUsuario(idusuario);
-        return reservas.stream()
-            .map(this::convertirReservaDto)
-            .collect(Collectors.toList());
-    }
-
-    @PostMapping
-    public ReservaDTO saveReservaDTO(@RequestBody ReservaDTO reservaDTO) {
-        Reserva reserva = convertirReservaEntidad(reservaDTO);
-        Reserva savedReserva = reservaService.saveReserva(reserva);
-        return convertirReservaDto(savedReserva);
-    }
-
-    @DeleteMapping("/{idreserva}")
-    public void deleteReserva(@PathVariable Long idreserva) {
-        reservaService.deleteReserva(idreserva);
-    }
-
-    private ReservaDTO convertirReservaDto(Reserva reserva) {
-        ReservaDTO reservaDTO = new ReservaDTO();
-        reservaDTO.setIdreserva(reserva.getIdReserva());
-        reservaDTO.setTime_stamp(reserva.getTime_stamp());
-        reservaDTO.setUsuario(reserva.getUsuario());
-        reservaDTO.setPase(reserva.getPase());
-        return reservaDTO;
-    }
-
-    private Reserva convertirReservaEntidad(ReservaDTO reservaDTO) {
-        Reserva reserva = new Reserva();
-        reserva.setIdReserva(reservaDTO.getIdreserva());
-        reserva.setTime_stamp(reservaDTO.getTime_stamp());
-        reserva.setUsuario(reservaDTO.getUsuario());
-        reserva.setPase(reserva.getPase());
-        return reserva;
-    }
-
 }
