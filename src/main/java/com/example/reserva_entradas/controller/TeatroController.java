@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.reserva_entradas.model.Obra;
 import com.example.reserva_entradas.model.Teatro;
 import com.example.reserva_entradas.service.TeatroService;
 
@@ -28,5 +31,13 @@ public class TeatroController {
         } catch (Exception e) {
             return "Error al mostrar los teatros" + e.getMessage();
         }
+    }
+
+    //TODO: get teatro by id
+
+    @PostMapping("/teatros")
+    public String saveTeatro(@ModelAttribute Teatro teatro){
+        teatroService.saveTeatro(teatro);
+        return "redirect:/teatros";
     }
 }

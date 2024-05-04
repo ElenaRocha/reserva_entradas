@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Template de usuarios</title>
 </head>
 <body>
-    
+    <form action="/usuarios" method="post">
+        <label>Id:</label>
+        <input type="text" readonly>
+        <label>Email:</label>
+        <input type="text" name="email">
+        <label>Contraseña:</label>
+        <input type="text" name="contrasena">
+        <label>Nombre:</label>
+        <input type="text" name="nombre">
+        <label>Primer apellido:</label>
+        <input type="text" name="apellido1">
+        <label>Segundo apellido:</label>
+        <input type="text" name="apellido2">
+        <label>Teléfono:</label>
+        <input type="text" name="telefono">
+        <label>Rol:</label>
+        <input type="text" name="rol">
+        <label>Teatro:</label>
+        <input type="text" name="teatro">
+        <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Usuarios</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Contraseña</th>
+            <th>Nombre</th>
+            <th>Primer apellido</th>
+            <th>Segundo apellido</th>
+            <th>Teléfono</th>
+            <th>Rol</th>
+            <th>Teatro</th>
+        </tr>
+        <tbody>
+            <tr th:each="usuario: ${usuariosParaFRont}">
+                <td th:text="${usuario.idusuario}"></td>
+                <td th:text="${usuario.email}"></td>
+                <td th:text="${usuario.contrasena}"></td>
+                <td th:text="${usuario.nombre}"></td>
+                <td th:text="${usuario.apellido1}"></td>
+                <td th:text="${usuario.apellido2}"></td>
+                <td th:text="${usuario.telefono}"></td>
+                <td th:text="${usuario.rol}"></td>
+                <td th:text="${usuario.teatro}"></td>
+                <td><input type="submit" value="Editar"></td>
+                <td><input type="submit" value="Eliminar"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

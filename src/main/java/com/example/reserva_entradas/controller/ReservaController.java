@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.reserva_entradas.model.Obra;
 import com.example.reserva_entradas.model.Reserva;
 import com.example.reserva_entradas.service.ReservaService;
 
@@ -28,5 +31,17 @@ public class ReservaController {
         } catch (Exception e) {
             return "Error al mostrar las reservas" + e.getMessage();
         }
+    }
+
+    //TODO: get reserva by id
+
+    //TODO: get reserva by usuario
+
+    //TODO: get reserva by pase
+
+    @PostMapping("/reservas")
+    public String saveReserva(@ModelAttribute Reserva reserva){
+        reservaService.saveReserva(reserva);
+        return "redirect:/reservas";
     }
 }

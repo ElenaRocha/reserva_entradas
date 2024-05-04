@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Template de teatros</title>
 </head>
 <body>
-    
+    <form action="/teatros" method="post">
+        <label>Id:</label>
+        <input type="text" readonly>
+        <label>Nombre:</label>
+        <input type="text" name="nombre">
+        <label>Presentación:</label>
+        <input type="text" name="presentacion">
+        <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Teatros</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Presentación</th>
+        </tr>
+        <tbody>
+            <tr th:each="teatro: ${teatrosParaFront}">
+                <td th:text="${teatro.idteatro}"></td>
+                <td th:text="${teatro.nombre}"></td>
+                <td th:text="${teatro.presentacion}"></td>
+                <td><input type="submit" value="Editar"></td>
+                <td><input type="submit" value="Eliminar"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

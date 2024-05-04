@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Template de pases</title>
 </head>
 <body>
-    
+    <form action="/pases" method="post">
+        <label>Id:</label>
+        <input type="text" readonly>
+        <label>Día:</label>
+        <input type="text" name="dia">
+        <label>Hora:</label>
+        <input type="text" name="hora">
+        <label>Precio:</label>
+        <input type="text" name="precio">
+        <label>Obra:</label>
+        <input type="text" name="obra">
+        <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Pases</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Día</th>
+            <th>Hora</th>
+            <th>Precio</th>
+            <th>Obra</th>
+        </tr>
+        <tbody>
+            <tr th:each="pase: ${pasesParaFront}">
+                <td th:text="${pase.idpase}"></td>
+                <td th:text="${pase.día}"></td>
+                <td th:text="${pase.hora}"></td>
+                <td th:text="${pase.precio}"></td>
+                <td th:text="${pase.obra}"></td>
+                <td><input type="submit" value="Editar"></td>
+                <td><input type="submit" value="Eliminar"></td>
+                <td><input type="submit" value="Reservar"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

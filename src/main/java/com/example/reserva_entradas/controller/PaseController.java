@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.reserva_entradas.model.Obra;
 import com.example.reserva_entradas.model.Pase;
 import com.example.reserva_entradas.service.PaseService;
 
@@ -28,5 +31,15 @@ public class PaseController {
         } catch (Exception e) {
             return "Error al mostrar los pases" + e.getMessage();
         }
+    }
+
+    //TODO: get pase by id
+
+    //TODO: get pase by obra
+
+    @PostMapping("/pases")
+    public String savePase(@ModelAttribute Pase pase){
+        paseService.savePase(pase);
+        return "redirect:/pases";
     }
 }

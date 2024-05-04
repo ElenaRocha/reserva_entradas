@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Template de reservas</title>
 </head>
 <body>
-    
+    <form action="/reservas" method="post">
+        <label>Id:</label>
+        <input type="text" readonly>
+        <label>Fecha:</label>
+        <input type="text" name="time_stamp">
+        <label>Usuario:</label>
+        <input type="text" name="usuario">
+        <label>Pase:</label>
+        <input type="text" name="pase">
+        <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Reservas</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Fecha</th>
+            <th>Usuario</th>
+            <th>Pase</th>
+        </tr>
+        <tbody>
+            <tr th:each="reserva: ${reservasParaFront}">
+                <td th:text="${reserva.idreserva}"></td>
+                <td th:text="${reserva.time_stamp}"></td>
+                <td th:text="${reserva.usuario}"></td>
+                <td th:text="${reserva.pase}"></td>
+                <td><input type="submit" value="Editar"></td>
+                <td><input type="submit" value="Eliminar"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.reserva_entradas.model.Obra;
 import com.example.reserva_entradas.service.ObraService;
@@ -28,6 +30,16 @@ public class ObraController {
         } catch (Exception e) {
             return "Error al mostrar las obras" + e.getMessage();
         }
+    }
+
+    //TODO: get obra by id
+
+    //TODO: get obra by teatro
+
+    @PostMapping("/obras")
+    public String saveObra(@ModelAttribute Obra obra){
+        obraService.saveObra(obra);
+        return "redirect:/obras";
     }
 }
 
