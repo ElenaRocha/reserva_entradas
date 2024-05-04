@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template de obras</title>
+</head>
+<body>
+    <h2>Obras</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Sinopsis</th>
+            <th>Duración</th>
+        </tr>
+        <tbody>
+            <tr th:each="obra: ${obrasParaFRont}">
+                <td th:text="${obra.idobra}"></td>
+                <td th:text="${obra.titulo}"></td>
+                <td th:text="${obra.autor}"></td>
+                <td th:text="${obra.sinopsis}"></td>
+                <td th:text="${obra.duracion_min}"></td>
+                <td><input type="submit" value="Editar"></td>
+                <td><input type="submit" value="Eliminar"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

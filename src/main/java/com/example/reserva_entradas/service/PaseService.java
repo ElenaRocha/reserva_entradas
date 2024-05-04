@@ -3,16 +3,38 @@ package com.example.reserva_entradas.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.reserva_entradas.model.Pase;
+import com.example.reserva_entradas.repository.PaseRepository;
 
-public interface PaseService {
-    List<Pase> getAllPases();
+@Service
+public class PaseService {
+    private final PaseRepository paseRepository;
 
-    Optional<Pase> getPaseById(Long idpase);
+    @Autowired
+    public PaseService(PaseRepository paseRepository){
+        this.paseRepository = paseRepository;
+    }
 
-    List<Pase> getPaseByObra(Long obra_id);
+    public List<Pase> getAllPases(){
+        return paseRepository.findAll();
+    }
 
-    Pase savePase(Pase pase);
+    public Optional<Pase> getPaseById(Long idpase){
+        return paseRepository.findById(idpase);
+    }
 
-    void deletePase(Long idpase);
+    public List<Pase> getPaseByObra(Long idobra){
+        return paseRepository.findByObraId(idobra);
+    }
+
+    public Pase savePase(Pase pase){
+        return paseRepository.save(pase);
+    }
+
+    public void deletePase(Long idpase){
+        paseRepository.deleteById(idpase);
+    }
 }

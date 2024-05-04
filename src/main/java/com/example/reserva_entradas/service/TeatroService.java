@@ -3,14 +3,34 @@ package com.example.reserva_entradas.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.reserva_entradas.model.Teatro;
+import com.example.reserva_entradas.repository.TeatroRepository;
 
-public interface TeatroService {
-    List<Teatro> getAllTeatros();
+@Service
+public class TeatroService {
+    private final TeatroRepository teatroRepository;
 
-    Optional<Teatro> getTeatroById(Long idteatro);
+    @Autowired
+    public TeatroService(TeatroRepository teatroRepository){
+        this.teatroRepository = teatroRepository;
+    }
 
-    Teatro saveTeatro(Teatro teatro);
+    public List<Teatro> getAllTeatros(){
+        return teatroRepository.findAll();
+    }
 
-    void deleteTeatro(Long idteatro);
+    public Optional<Teatro> getTeatroById(Long idteatro){
+        return teatroRepository.findById(idteatro);
+    }
+
+    public Teatro saveTeatro(Teatro teatro){
+        return teatroRepository.save(teatro);
+    }
+
+    public void deleteTeatro(Long idteatro){
+        teatroRepository.deleteById(idteatro);
+    }
 }

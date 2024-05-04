@@ -30,6 +30,8 @@ public class ObraController {
         return obras.stream()
             .map(this::convertirObraDto)
             .collect(Collectors.toList());
+        //model.addAttribute("obrasParaFront", obras);
+        //return "obrasTemplate";
     }
 
     @GetMapping("/{idobra}")

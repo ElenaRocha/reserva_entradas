@@ -3,18 +3,42 @@ package com.example.reserva_entradas.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.reserva_entradas.model.Reserva;
+import com.example.reserva_entradas.repository.ReservaRepository;
 
-public interface ReservaService {
-    List<Reserva> getAllReservas();
+@Service
+public class ReservaService {
+    private final ReservaRepository reservaRepository;
 
-    Optional<Reserva> getReservaById(Long idreserva);
+    @Autowired
+    public ReservaService(ReservaRepository reservaRepository){
+        this.reservaRepository = reservaRepository;
+    }
 
-    List<Reserva> getReservaByUsuario(Long usuario_id);
+    public List<Reserva> getAllReservas(){
+        return reservaRepository.findAll();
+    }
 
-    List<Reserva> getReservaByPase(Long pase_id);
+    public Optional<Reserva> getReservaById(Long idreserva){
+        return reservaRepository.findById(idreserva);
+    }
 
-    Reserva saveReserva(Reserva reserva);
+    public List<Reserva> getReservaByUsuario(Long idusuario){
+        return reservaRepository.findByUsuarioId(idusuario);
+    }
 
-    void deleteReserva(Long idreserva);
+    public List<Reserva> getReservaByPase(Long idpase){
+        return reservaRepository.findByPaseId(idpase);
+    }
+
+    public Reserva saveReserva(Reserva reserva){
+        return reservaRepository.save(reserva);
+    }
+
+    public void deleteReserva(Long idreserva){
+        reservaRepository.deleteById(idreserva);
+    }
 }
