@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.reserva_entradas.model.Obra;
 import com.example.reserva_entradas.model.Reserva;
 import com.example.reserva_entradas.service.ReservaService;
 
