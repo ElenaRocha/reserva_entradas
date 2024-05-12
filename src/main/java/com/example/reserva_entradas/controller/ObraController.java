@@ -36,7 +36,7 @@ public class ObraController {
 
     //TODO: get obra by teatro
 
-    @PostMapping("/obras")
+    @PostMapping("/guardarobra")
     public String saveObra(@ModelAttribute Obra obra){
         obraService.saveObra(obra);
         return "redirect:/obras";

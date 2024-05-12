@@ -36,7 +36,7 @@ public class PaseController {
 
     //TODO: get pase by obra
 
-    @PostMapping("/pases")
+    @PostMapping("/guardarpase")
     public String savePase(@ModelAttribute Pase pase){
         paseService.savePase(pase);
         return "redirect:/pases";

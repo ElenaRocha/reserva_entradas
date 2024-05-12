@@ -38,7 +38,7 @@ public class ReservaController {
 
     //TODO: get reserva by pase
 
-    @PostMapping("/reservas")
+    @PostMapping("/guardarreserva")
     public String saveReserva(@ModelAttribute Reserva reserva){
         reservaService.saveReserva(reserva);
         return "redirect:/reservas";

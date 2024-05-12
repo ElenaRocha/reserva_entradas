@@ -34,7 +34,7 @@ public class TeatroController {
 
     //TODO: get teatro by id
 
-    @PostMapping("/teatros")
+    @PostMapping("/guardarteatro")
     public String saveTeatro(@ModelAttribute Teatro teatro){
         teatroService.saveTeatro(teatro);
         return "redirect:/teatros";

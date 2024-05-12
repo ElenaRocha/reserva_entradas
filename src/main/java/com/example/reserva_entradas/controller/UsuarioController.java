@@ -36,7 +36,7 @@ public class UsuarioController {
 
     //TODO: get usuario by teatro
 
-    @PostMapping("/usuarios")
+    @PostMapping("/guardarusuario")
     public String saveUsuario(@ModelAttribute Usuario usuario){
         usuarioService.saveUsuario(usuario);
         return "redirect:/usuarios";
