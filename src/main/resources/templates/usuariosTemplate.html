@@ -31,23 +31,23 @@
 
     <form action="/actualizarusuario" method="post">
         <label>Id:</label>
-        <input type="text" id="idusuario" name="idusuario" readonly>
+        <input type="text" id="idusuarioAct" name="idusuario" readonly>
         <label>Email:</label>
-        <input type="text" id="email" name="email">
+        <input type="text" id="emailAct" name="email">
         <label>Contraseña:</label>
-        <input type="text" id="contrasena" name="contrasena">
+        <input type="text" id="contrasenaAct" name="contrasena">
         <label>Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombreAct" name="nombre">
         <label>Primer apellido:</label>
-        <input type="text" id="apellido1" name="apellido1">
+        <input type="text" id="apellido1Act" name="apellido1">
         <label>Segundo apellido:</label>
-        <input type="text" id="apellido2" name="apellido2">
+        <input type="text" id="apellido2Act" name="apellido2">
         <label>Teléfono:</label>
-        <input type="text" id="telefono" name="telefono">
+        <input type="text" id="telefonoAct" name="telefono">
         <label>Rol:</label>
-        <input type="text" id="rol" name="rol">
+        <input type="text" id="rolAct" name="rol">
         <label>Teatro:</label>
-        <input type="text" id="teatro" name="teatro">
+        <input type="text" id="teatroAct" name="teatro">
         <button type="submit">Actualizar</button>
     </form>
     <br>
@@ -76,8 +76,8 @@
                 <td th:text="${usuario.telefono}"></td>
                 <td th:text="${usuario.rol}"></td>
                 <td th:text="${usuario.teatro}"></td>
-                <td><input type="submit" value="Editar" onclick="seleccionarModificarUsuario()"></td>
-                <td><input type="submit" value="Eliminar"></td>
+                <td><input type="submit" value="Editar" onclick="editarUsuario()"></td>
+                <td><input type="submit" value="Eliminar" onclick="eliminarUsuario()"></td>
             </tr>
         </tbody>
     </table>

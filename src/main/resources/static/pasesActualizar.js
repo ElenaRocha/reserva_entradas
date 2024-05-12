@@ -1,4 +1,4 @@
-function seleccionarModificarPase(){
+function editarPase(){
 
     var table = document.getElementById("tabla_pase");
 

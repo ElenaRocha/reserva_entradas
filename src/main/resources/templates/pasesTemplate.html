@@ -23,15 +23,15 @@
 
     <form action="/actualizarpase" method="post">
         <label>Id:</label>
-        <input type="text" id="idpase" name="idpase" readonly>
+        <input type="text" id="idpaseAct" name="idpase" readonly>
         <label>Día:</label>
-        <input type="text" id="dia" name="dia">
+        <input type="text" id="diaAct" name="dia">
         <label>Hora:</label>
-        <input type="text" id="hora" name="hora">
+        <input type="text" id="horaAct" name="hora">
         <label>Precio:</label>
-        <input type="text" id="precio" name="precio">
+        <input type="text" id="precioAct" name="precio">
         <label>Obra:</label>
-        <input type="text" id="obra" name="obra">
+        <input type="text" id="obraAct" name="obra">
         <button type="submit">Actualizar</button>
     </form>
     <br>
@@ -52,8 +52,8 @@
                 <td th:text="${pase.hora}"></td>
                 <td th:text="${pase.precio}"></td>
                 <td th:text="${pase.obra}"></td>
-                <td><input type="submit" value="Editar" onclick="seleccionarModificarPase()"></td>
-                <td><input type="submit" value="Eliminar"></td>
+                <td><input type="submit" value="Editar" onclick="editarPase()"></td>
+                <td><input type="submit" value="Eliminar" onclick="eliminarPase()"></td>
                 <td><input type="submit" value="Reservar"></td>
             </tr>
         </tbody>

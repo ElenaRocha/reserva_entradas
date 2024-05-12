@@ -21,13 +21,13 @@
 
     <form action="/actualizarreserva" method="post">
         <label>Id:</label>
-        <input type="text" id="idreserva" name="idreserva" readonly>
+        <input type="text" id="idreservaAct" name="idreserva" readonly>
         <label>Fecha:</label>
-        <input type="text" id="time_stamp" name="time_stamp">
+        <input type="text" id="time_stampAct" name="time_stamp">
         <label>Usuario:</label>
-        <input type="text" id="usuario" name="usuario">
+        <input type="text" id="usuarioAct" name="usuario">
         <label>Pase:</label>
-        <input type="text" id="pase" name="pase">
+        <input type="text" id="paseAct" name="pase">
         <button type="submit">Actualizar</button>
     </form>
     <br>
@@ -46,8 +46,8 @@
                 <td th:text="${reserva.time_stamp}"></td>
                 <td th:text="${reserva.usuario}"></td>
                 <td th:text="${reserva.pase}"></td>
-                <td><input type="submit" value="Editar" onclick="seleccionarModificarReserva()"></td>
-                <td><input type="submit" value="Eliminar"></td>
+                <td><input type="submit" value="Editar" onclick="editarReserva()"></td>
+                <td><input type="submit" value="Eliminar" onclick="eliminarReserva()"></td>
             </tr>
         </tbody>
     </table>

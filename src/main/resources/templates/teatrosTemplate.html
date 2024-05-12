@@ -19,11 +19,11 @@
 
     <form action="/actualizarteatro" method="post">
         <label>Id:</label>
-        <input type="text" id="idteatro" name="idteatro" readonly>
+        <input type="text" id="idteatroAct" name="idteatro" readonly>
         <label>Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombreAct" name="nombre">
         <label>Presentación:</label>
-        <input type="text" id="presentacion" name="presentacion">
+        <input type="text" id="presentacionAct" name="presentacion">
         <button type="submit">Actualizar</button>
     </form>
     <br>
@@ -40,8 +40,8 @@
                 <td th:text="${teatro.idteatro}"></td>
                 <td th:text="${teatro.nombre}"></td>
                 <td th:text="${teatro.presentacion}"></td>
-                <td><input type="submit" value="Editar" onclick="seleccionarModificarTeatro()"></td>
-                <td><input type="submit" value="Eliminar"></td>
+                <td><input type="submit" value="Editar" onclick="editarTeatro()"></td>
+                <td><input type="submit" value="Eliminar" onclick="eliminarTeatro()"></td>
             </tr>
         </tbody>
     </table>

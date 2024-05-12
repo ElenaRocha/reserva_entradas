@@ -25,18 +25,35 @@
 
     <form action="/actualizarobra" method="post">
         <label>Id:</label>
-        <input type="text" id="idobra" name="idobra" readonly>
+        <input type="text" id="idobraAct" name="idobra" readonly>
         <label>Título:</label>
-        <input type="text" id="titulo" name="titulo">
+        <input type="text" id="tituloAct" name="titulo">
         <label>Autor:</label>
-        <input type="text" id="autor" name="autor">
+        <input type="text" id="autorAct" name="autor">
         <label>Sinopsis:</label>
-        <input type="text" id="sinopsis" name="sinopsis">
+        <input type="text" id="sinopsisAct" name="sinopsis">
         <label>Sinopsis:</label>
-        <input type="text" id="duracion_min" name="duracion_min">
+        <input type="text" id="duracion_minAct" name="duracion_min">
         <label>Teatro:</label>
-        <input type="text" id="teatro" name="teatro">
+        <input type="text" id="teatroAct" name="teatro">
         <button type="submit">Actualizar</button>
+    </form>
+    <br>
+
+    <form action="/eliminarobra" method="post">
+        <label>Id:</label>
+        <input type="text" id="idobraElm" name="idobra" readonly>
+        <label>Título:</label>
+        <input type="text" id="tituloElm" name="titulo">
+        <label>Autor:</label>
+        <input type="text" id="autorElm" name="autor">
+        <label>Sinopsis:</label>
+        <input type="text" id="sinopsisElm" name="sinopsis">
+        <label>Sinopsis:</label>
+        <input type="text" id="duracion_minElm" name="duracion_min">
+        <label>Teatro:</label>
+        <input type="text" id="teatroElm" name="teatro">
+        <button type="submit">Eliminar</button>
     </form>
     <br>
 
@@ -58,8 +75,8 @@
                 <td th:text="${obra.sinopsis}"></td>
                 <td th:text="${obra.duracion_min}"></td>
                 <td th:text="${obra.teatro}"></td>
-                <td><input type="submit" value="Editar" onclick="seleccionarModificarObra()"></td>
-                <td><input type="submit" value="Eliminar"></td>
+                <td><input type="submit" value="Editar" onclick="editarObra()"></td>
+                <td><input type="submit" value="Eliminar" onclick="eliminarObra()"></td>
             </tr>
         </tbody>
     </table>

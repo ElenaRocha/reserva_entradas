@@ -1,4 +1,4 @@
-function seleccionarModificarTeatro(){
+function editarTeatro(){
 
     var table = document.getElementById("tabla_teatro");
 

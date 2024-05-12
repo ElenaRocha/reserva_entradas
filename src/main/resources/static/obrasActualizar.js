@@ -1,4 +1,4 @@
-function seleccionarModificarObra(){
+function editarObra(){
 
     var table = document.getElementById("tabla_obra");
 

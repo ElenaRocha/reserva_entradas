@@ -1,4 +1,4 @@
-function seleccionarModificarReserva(){
+function editarReserva(){
 
     var table = document.getElementById("tabla_reserva");
 
