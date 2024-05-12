@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.reserva_entradas.model.Obra;
 import com.example.reserva_entradas.model.Usuario;
 import com.example.reserva_entradas.repository.UsuarioRepository;
 
