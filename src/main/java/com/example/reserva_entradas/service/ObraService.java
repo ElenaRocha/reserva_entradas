@@ -1,6 +1,7 @@
 package com.example.reserva_entradas.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,19 @@ public class ObraService {
 
     public Obra saveObra(Obra obra){
         return obraRepository.save(obra);
+    }
+
+    public Obra updateObra(Long idobra, Obra obra){
+        Obra obraExistente = obraRepository.findById(idobra)
+            .orElseThrow(() -> new NoSuchElementException("Obra no encontrada"));
+        
+        obraExistente.setTitulo(obra.getTitulo());
+        obraExistente.setAutor(obra.getAutor());
+        obraExistente.setSinopsis(obra.getSinopsis());
+        obraExistente.setDuracion_min(obra.getDuracion_min());
+        obraExistente.setTeatro(obra.getTeatro());
+
+        return obraRepository.save(obraExistente);
     }
 
     public void deleteObra(Long idobra){
