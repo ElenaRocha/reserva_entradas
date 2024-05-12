@@ -1,11 +1,13 @@
 package com.example.reserva_entradas.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.reserva_entradas.model.Obra;
 import com.example.reserva_entradas.model.Teatro;
 import com.example.reserva_entradas.repository.TeatroRepository;
 
@@ -28,6 +30,17 @@ public class TeatroService {
 
     public Teatro saveTeatro(Teatro teatro){
         return teatroRepository.save(teatro);
+    }
+
+    public Teatro updateTeatro(Long idteatro, Teatro teatro){
+        Teatro teatroExistente = teatroRepository.findById(idteatro)
+            .orElseThrow(() -> new NoSuchElementException("Teatro no encontrado"));
+        
+        teatroExistente.setNombre(teatro.getNombre());
+        teatroExistente.setPresentacion(teatro.getPresentacion());
+
+        return teatroRepository.save(teatroExistente);
+        
     }
 
     public void deleteTeatro(Long idteatro){
