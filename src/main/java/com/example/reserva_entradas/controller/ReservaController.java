@@ -43,4 +43,10 @@ public class ReservaController {
         reservaService.saveReserva(reserva);
         return "redirect:/reservas";
     }
+
+    @PostMapping("/actualizarreserva")
+    public String updateReserva(@ModelAttribute Reserva reserva){
+        reservaService.updateReserva(reserva.getIdReserva(), reserva);
+        return "redirect:/reservas";
+    }
 }

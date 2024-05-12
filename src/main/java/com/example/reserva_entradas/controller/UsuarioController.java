@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.reserva_entradas.model.Obra;
 import com.example.reserva_entradas.model.Usuario;
 import com.example.reserva_entradas.service.UsuarioService;
 
@@ -39,6 +40,12 @@ public class UsuarioController {
     @PostMapping("/guardarusuario")
     public String saveUsuario(@ModelAttribute Usuario usuario){
         usuarioService.saveUsuario(usuario);
+        return "redirect:/usuarios";
+    }
+
+    @PostMapping("/actualizarusuario")
+    public String updateUsuario(@ModelAttribute Usuario usuario){
+        usuarioService.updateUsuario(usuario.getIdUsuario(), usuario);
         return "redirect:/usuarios";
     }
 }

@@ -39,4 +39,10 @@ public class TeatroController {
         teatroService.saveTeatro(teatro);
         return "redirect:/teatros";
     }
+
+    @PostMapping("/actualizarteatro")
+    public String updateTeatro(@ModelAttribute Teatro teatro){
+        teatroService.updateTeatro(teatro.getIdTeatro(), teatro);
+        return "redirect:/teatros";
+    }
 }

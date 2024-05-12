@@ -41,6 +41,12 @@ public class ObraController {
         obraService.saveObra(obra);
         return "redirect:/obras";
     }
+
+    @PostMapping("/actualizarobra")
+    public String updateObra(@ModelAttribute Obra obra){
+        obraService.updateObra(obra.getIdObra(), obra);
+        return "redirect:/obras";
+    }
 }
 
 //ejemplo de un controlador usando DTO

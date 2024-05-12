@@ -41,4 +41,10 @@ public class PaseController {
         paseService.savePase(pase);
         return "redirect:/pases";
     }
+
+    @PostMapping("/actualizarpase")
+    public String updatePase(@ModelAttribute Pase pase){
+        paseService.updatePase(pase.getIdPase(), pase);
+        return "redirect:/pases";
+    }
 }
