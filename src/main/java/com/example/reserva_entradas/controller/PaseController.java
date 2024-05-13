@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.reserva_entradas.model.Pase;
 import com.example.reserva_entradas.service.PaseService;
@@ -49,7 +50,7 @@ public class PaseController {
     }
 
     @PostMapping("/eliminarpase")
-    public String eliminarPase(@ModelAttribute Long idpase){
+    public String eliminarPase(@RequestParam Long idpase){
         paseService.deletePase(idpase);
         return "redirect:/pases";
     }

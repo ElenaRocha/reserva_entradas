@@ -32,6 +32,19 @@
     </form>
     <br>
 
+    <form action="/eliminarreserva" method="post">
+        <label>Id:</label>
+        <input type="text" id="idreservaElm" name="idreserva" readonly>
+        <label>Fecha:</label>
+        <input type="text" id="time_stampElm">
+        <label>Usuario:</label>
+        <input type="text" id="usuarioElm">
+        <label>Pase:</label>
+        <input type="text" id="paseElm">
+        <button type="submit">Eliminar</button>
+    </form>
+    <br>
+
     <h2>Reservas</h2>
     <table id="tabla_reserva">
         <tr>

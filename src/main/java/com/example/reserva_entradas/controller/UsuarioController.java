@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.reserva_entradas.model.Usuario;
 import com.example.reserva_entradas.service.UsuarioService;
@@ -49,7 +50,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/eliminarusuario")
-    public String eliminarUsuario(@ModelAttribute Long idusuario){
+    public String eliminarUsuario(@RequestParam Long idusuario){
         usuarioService.deleteUsuario(idusuario);
         return "redirect:/usuarios";
     }
