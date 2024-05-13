@@ -49,6 +49,9 @@ public class PaseService {
     }
 
     public void deletePase(Long idpase){
-        paseRepository.deleteById(idpase);
+        Pase paseExistente = paseRepository.findById(idpase)
+            .orElseThrow(() -> new NoSuchElementException("Pase no encontrado"));
+
+        paseRepository.delete(paseExistente);
     }
 }

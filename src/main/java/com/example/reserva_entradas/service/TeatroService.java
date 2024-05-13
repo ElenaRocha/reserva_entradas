@@ -43,6 +43,9 @@ public class TeatroService {
     }
 
     public void deleteTeatro(Long idteatro){
-        teatroRepository.deleteById(idteatro);
+        Teatro teatroExistente = teatroRepository.findById(idteatro)
+            .orElseThrow(() -> new NoSuchElementException("Teatro no encontrado"));
+
+        teatroRepository.delete(teatroExistente);
     }
 }

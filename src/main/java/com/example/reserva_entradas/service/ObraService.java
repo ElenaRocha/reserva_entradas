@@ -50,7 +50,10 @@ public class ObraService {
     }
 
     public void deleteObra(Long idobra){
-        obraRepository.deleteById(idobra);
+        Obra obraExistente = obraRepository.findById(idobra)
+            .orElseThrow(() -> new NoSuchElementException("Obra no encontrada"));
+
+        obraRepository.delete(obraExistente);
     }
  }
 

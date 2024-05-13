@@ -52,6 +52,9 @@ public class UsuarioService {
     }
 
     public void deleteUsuario(Long idusuario){
-        usuarioRepository.deleteById(idusuario);
+        Usuario usuarioExistente = usuarioRepository.findById(idusuario)
+            .orElseThrow(() -> new NoSuchElementException("Usuario no encontrado"));
+
+        usuarioRepository.delete(usuarioExistente);
     }
 }

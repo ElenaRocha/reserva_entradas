@@ -52,6 +52,9 @@ public class ReservaService {
     }
 
     public void deleteReserva(Long idreserva){
-        reservaRepository.deleteById(idreserva);
+        Reserva reservaExistente = reservaRepository.findById(idreserva)
+            .orElseThrow(() -> new NoSuchElementException("Reserva no encontrada"));
+
+        reservaRepository.delete(reservaExistente);
     }
 }
