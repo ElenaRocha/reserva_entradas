@@ -47,4 +47,10 @@ public class UsuarioController {
         usuarioService.updateUsuario(usuario.getIdUsuario(), usuario);
         return "redirect:/usuarios";
     }
+
+    @PostMapping("/eliminarusuario")
+    public String eliminarUsuario(@ModelAttribute Long idusuario){
+        usuarioService.deleteUsuario(idusuario);
+        return "redirect:/usuarios";
+    }
 }

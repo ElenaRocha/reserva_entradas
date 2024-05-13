@@ -47,4 +47,10 @@ public class PaseController {
         paseService.updatePase(pase.getIdPase(), pase);
         return "redirect:/pases";
     }
+
+    @PostMapping("/eliminarpase")
+    public String eliminarPase(@ModelAttribute Long idpase){
+        paseService.deletePase(idpase);
+        return "redirect:/pases";
+    }
 }

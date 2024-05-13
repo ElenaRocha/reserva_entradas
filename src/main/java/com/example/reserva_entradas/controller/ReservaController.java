@@ -49,4 +49,10 @@ public class ReservaController {
         reservaService.updateReserva(reserva.getIdReserva(), reserva);
         return "redirect:/reservas";
     }
+
+    @PostMapping("/eliminarreserva")
+    public String eliminarReserva(@ModelAttribute Long idreserva){
+        reservaService.deleteReserva(idreserva);
+        return "redirect:/reservas";
+    }
 }

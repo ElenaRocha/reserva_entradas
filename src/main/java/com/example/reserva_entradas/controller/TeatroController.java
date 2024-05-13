@@ -45,4 +45,10 @@ public class TeatroController {
         teatroService.updateTeatro(teatro.getIdTeatro(), teatro);
         return "redirect:/teatros";
     }
+
+    @PostMapping("/eliminarteatro")
+    public String eliminarTeatro(@ModelAttribute Long idteatro){
+        teatroService.deleteTeatro(idteatro);
+        return "redirect:/teatros";
+    }
 }

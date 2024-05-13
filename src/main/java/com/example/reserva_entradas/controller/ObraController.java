@@ -47,6 +47,12 @@ public class ObraController {
         obraService.updateObra(obra.getIdObra(), obra);
         return "redirect:/obras";
     }
+
+    @PostMapping("/eliminarobra")
+    public String eliminarObra(@ModelAttribute Long idobra){
+        obraService.deleteObra(idobra);
+        return "redirect:/obras";
+    }
 }
 
 //ejemplo de un controlador usando DTO
